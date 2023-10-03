@@ -1,10 +1,10 @@
-import * as React from "react";
-import { View, Button, TouchableOpacity, Text, Dimensions } from "react-native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NavigationContainer } from "@react-navigation/native";
-import Animated, { FadeIn, Layout } from "react-native-reanimated";
+import * as React from 'react';
+import { View, Button, TouchableOpacity, Text, Dimensions } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import Animated, { FadeIn, Layout } from 'react-native-reanimated';
 
-import { SharedTransition, withSpring } from "react-native-reanimated";
+import { SharedTransition, withSpring } from 'react-native-reanimated';
 
 const SPRING_CONFIG = {
   mass: 1,
@@ -13,7 +13,7 @@ const SPRING_CONFIG = {
 };
 
 export const sharedElementTransition = SharedTransition.custom((values) => {
-  "worklet";
+  'worklet';
   return {
     height: withSpring(values.targetHeight, SPRING_CONFIG),
     width: withSpring(values.targetWidth, SPRING_CONFIG),
@@ -35,11 +35,11 @@ function Screen1({ navigation }) {
         style={{ width: 150, height: 150, borderRadius: 10 }}
         resizeMode="cover"
         source={{
-          uri: "https://www.thegrandwinetour.com/public/tour/princ-BarbarescoBaroloWineTourBarolo-WEB.jpg",
+          uri: 'https://www.thegrandwinetour.com/public/tour/princ-BarbarescoBaroloWineTourBarolo-WEB.jpg',
         }}
         sharedTransitionTag="sharedTag"
       />
-      <Button title="Screen2" onPress={() => navigation.navigate("Screen2")} />
+      <Button title="Screen2" onPress={() => navigation.navigate('Screen2')} />
       <Animated.View
         layout={Layout}
         style={{ padding: 10, borderWidth: 1, borderRadius: 10 }}
@@ -54,7 +54,7 @@ function Screen1({ navigation }) {
             ever since the 1500s, when an unknown printer took a galley of type
             and scrambled it to make a type specimen book. It has survived not
             only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged.
+            remaining essentially unchanged. Testing test submodule
           </Animated.Text>
         )}
         <Text></Text>
@@ -68,16 +68,16 @@ function Screen2({ navigation }) {
     <View style={{ flex: 1 }}>
       <Animated.Image
         style={{
-          width: Dimensions.get("window").width,
+          width: Dimensions.get('window').width,
           height: 250,
-          resizeMode: "cover",
+          resizeMode: 'cover',
         }}
         source={{
-          uri: "https://www.thegrandwinetour.com/public/tour/princ-BarbarescoBaroloWineTourBarolo-WEB.jpg",
+          uri: 'https://www.thegrandwinetour.com/public/tour/princ-BarbarescoBaroloWineTourBarolo-WEB.jpg',
         }}
         sharedTransitionTag="sharedTag"
       />
-      <Button title="Screen1" onPress={() => navigation.navigate("Screen1")} />
+      <Button title="Screen1" onPress={() => navigation.navigate('Screen1')} />
     </View>
   );
 }
@@ -85,7 +85,7 @@ function Screen2({ navigation }) {
 export default function SharedElementExample() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: true, animation: "fade" }}>
+      <Stack.Navigator screenOptions={{ headerShown: true, animation: 'fade' }}>
         <Stack.Screen name="Screen1" component={Screen1} />
         <Stack.Screen name="Screen2" component={Screen2} />
       </Stack.Navigator>
